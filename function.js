@@ -16,8 +16,6 @@ async function verifyCountry(){
       for (a of response.results[0].address_components){
         if(a.types[0] == "country") return (a.long_name);
       }
-      console.log(xa+","+xy)
-      console.log(response.results[0].address_components);
       return "";
     });
 }
@@ -26,6 +24,7 @@ async function loadValue(){
   generateValue();
   while(await verifyCountry() != 'France'){
     generateValue();
+    await sleep(1000);
   }
   document.getElementById('cds').innerHTML = "Coordonnées : " + xa + "," + xy;
 }
