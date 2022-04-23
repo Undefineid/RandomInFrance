@@ -6,28 +6,26 @@ function getRandomArbitrary(min, max) {
 }
 
 function generateValue(){
-  xa = Math.round(getRandomArbitrary(42.3327778, 51.0716667)*10000000)/10000000;
-  xy = Math.round(getRandomArbitrary(-4.795555555555556, 8.230555555555556)*10000000000000000)/10000000000000000;
-}
-
-async function loadValue(){
-  generateValue()
-  while(await verifyCountry() != 'France'){
-    generateValue()
-  }
-  document.getElementById('cds').innerHTML = "Coordonnées : " + xa + "," + xy;
+  xa = Math.round(getRandomArbitrary(423327778, 510716667)/10000000;
+  xy = Math.round(getRandomArbitrary(-4795555555555556, 8230555555555556)/10000000000000000;
 }
 
 async function verifyCountry(){
   const geocoder = new google.maps.Geocoder();
   return await geocoder.geocode({ location: {lat: xa, lng: xy} }).then((response) => {
       for (a of response.results[0].address_components){
-        if(a.types[0] == "country"){
-          return (a.long_name);
-        }
+        if(a.types[0] == "country") return (a.long_name);
       }
       return "";
     });
+}
+
+async function loadValue(){
+  generateValue();
+  while(await verifyCountry() != 'France'){
+    generateValue();
+  }
+  document.getElementById('cds').innerHTML = "Coordonnées : " + xa + "," + xy;
 }
 
 async function loadMap() {
@@ -41,5 +39,4 @@ async function loadMap() {
     map,
     title: "Ici",
   });
-  console.log("test")
 }
