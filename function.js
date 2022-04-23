@@ -33,13 +33,14 @@ async function loadValue(){
 
 async function loadMap() {
   await loadValue();
-  map = new google.maps.Map(document.getElementById("main"), {
+  let map = new google.maps.Map(document.getElementById("main"), {
     center: { lat: xa, lng: xy },
-    zoom: 8,
+    zoom: 8
   });
   new google.maps.Marker({
     position: { lat: xa, lng: xy },
     map,
-    title: "Ici",
+    title: "Ici"
   });
+  console.log('test')
 }
