@@ -26,7 +26,7 @@ async function loadValue(){
   generateValue();
   while(await verifyCountry() != 'France'){
     generateValue();
-    await sleep(1000);
+    await sleep(100);
   }
   document.getElementById('cds').innerHTML = "Coordonnées : " + xa + "," + xy;
 }
