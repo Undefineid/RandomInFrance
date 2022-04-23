@@ -6,8 +6,8 @@ function getRandomArbitrary(min, max) {
 }
 
 function generateValue(){
-  xa = Math.round(getRandomArbitrary(423327778, 510716667)/10000000;
-  xy = Math.round(getRandomArbitrary(-4795555555555556, 8230555555555556)/10000000000000000;
+  xa = Math.round(getRandomArbitrary(423327778, 510716667))/10000000;
+  xy = Math.round(getRandomArbitrary(-4795555555555556, 8230555555555556))/10000000000000000;
 }
 
 async function verifyCountry(){
