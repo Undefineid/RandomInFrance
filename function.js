@@ -41,4 +41,5 @@ async function loadMap() {
     map,
     title: "Ici",
   });
+  console.log("test")
 }
