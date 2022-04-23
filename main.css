@@ -1,0 +1,16 @@
+body{
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+#main{
+  width: 100vw;
+  height: 98vh;
+  margin: 0 0 0 0;
+  padding : 0 0 0 0;
+}
+p{
+  margin: 0 0 0 0;
+}
