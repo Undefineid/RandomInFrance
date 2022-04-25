@@ -75,6 +75,15 @@ function changeScope(){
   reloadMap();
 }
 
+function distanceCalcul(){
+  if(navigator.geolocation) {
+    console.log(position.coords.latitude + "," + position.coords.longitude);
+  }
+  else {
+    alert('Geolocation not detected');
+  }
+}
+
 function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
   var R = 6371;
   var dLat = deg2rad(lat2-lat1);
