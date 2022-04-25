@@ -77,7 +77,6 @@ function changeScope(){
 
 function distanceCalcul(){
   if(navigator.geolocation) {
-    console.log(navigator.geolocation.getCurrentPosition());
     navigator.geolocation.getCurrentPosition(function(position) {
       alert("La distance entre toi et le point est de " + getDistanceFromLatLonInKm(xa,xy,position.coords.latitude,position.coords.longitude) + "km.");
     });
