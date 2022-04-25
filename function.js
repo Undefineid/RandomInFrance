@@ -77,7 +77,7 @@ function changeScope(){
 
 function distanceCalcul(){
   if(navigator.geolocation) {
-    console.log(position.coords.latitude + "," + position.coords.longitude);
+    navigator.geolocation.getCurrentPosition(function(position) {console.log(position.coords.latitude + "," + position.coords.longitude)});
   }
   else {
     alert('Geolocation not detected');
