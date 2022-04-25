@@ -78,7 +78,7 @@ function changeScope(){
 function distanceCalcul(){
   if(navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
-      console.log(getDistanceFromLatLonInKm(xa,xy,position.coords.latitude,position.coords.longitude));
+      alert("La distance entre toi et le point est de " + getDistanceFromLatLonInKm(xa,xy,position.coords.latitude,position.coords.longitude) + "km.");
     });
   }
   else {
@@ -95,10 +95,10 @@ function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
     Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
     Math.sin(dLon/2) * Math.sin(dLon/2);
   var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-  var d = R * c; // Distance in km
-  return d;
+  var d = R * c;
+  return Math.round(d);
 }
 
 function deg2rad(deg) {
-  return deg * (Math.PI/180)
+  return deg * (Math.PI/180);
 }
