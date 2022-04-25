@@ -1,6 +1,7 @@
 var xa = "";
 var xy = "";
 var map;
+var marker;
 
 function getRandomArbitrary(min, max) {
   return Math.random() * (max - min) + min;
@@ -37,7 +38,7 @@ async function loadMap() {
   map = new google.maps.Map(document.getElementById("main"), {
     center: { lat: xa, lng: xy },
     zoom: 8});
-  new google.maps.Marker({
+  marker = new google.maps.Marker({
     position: { lat: xa, lng: xy },
     map,
     title: "Ici"});
@@ -45,9 +46,9 @@ async function loadMap() {
 
 async function reloadMap(){
   await loadValue();
-  setMapOnAll(null);
+  marker.setMap(null);
   map.setCenter({lat: xa, lng: xy});
-  new google.maps.Marker({
+  marker = new google.maps.Marker({
     position: { lat: xa, lng: xy },
     map,
     title: "Ici"});
