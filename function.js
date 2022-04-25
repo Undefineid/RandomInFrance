@@ -35,11 +35,9 @@ async function loadMap() {
   await loadValue();
   let map = new google.maps.Map(document.getElementById("main"), {
     center: { lat: xa, lng: xy },
-    zoom: 8
-  });
+    zoom: 8});
   new google.maps.Marker({
     position: { lat: xa, lng: xy },
     map,
-    title: "Ici"
-  });
+    title: "Ici"});
 }
