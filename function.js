@@ -2,6 +2,7 @@ var xa = "";
 var xy = "";
 var map;
 var marker;
+var bypass = false;
 
 function getRandomArbitrary(min, max) {
   return Math.random() * (max - min) + min;
@@ -10,34 +11,32 @@ function getRandomArbitrary(min, max) {
 const sleep = (delay) => new Promise( (resolve) => setTimeout(resolve, delay));
 
 function generateValue(){
-  xa = Math.round(getRandomArbitrary(423327778, 510716667))/10000000;
-  xy = Math.round(getRandomArbitrary(-4795555555555556, 8230555555555556))/1000000000000000;
-}
-
-async function testEurope(){
-  xa = Math.round(getRandomArbitrary(360041667, 711338889))/10000000;
-  xy = Math.round(getRandomArbitrary(-9498885000000000, 66618055555555540))/1000000000000000;
-  let geocoder = new google.maps.Geocoder();
-  return await geocoder.geocode({ location: {lat: xa, lng: xy} }).then((response) => {
-      for (a of response.results[0].address_components){
-        if(a.types[0] == "country") console.log(a.long_name);
-      }
-    });
+  if(bypass){
+    xa = Math.round(getRandomArbitrary(360041667, 711338889))/10000000;
+    xy = Math.round(getRandomArbitrary(-9498885000000000, 66618055555555540))/1000000000000000;
+  }
+  else{
+    xa = Math.round(getRandomArbitrary(423327778, 510716667))/10000000;
+    xy = Math.round(getRandomArbitrary(-4795555555555556, 8230555555555556))/1000000000000000;
+  }
 }
 
 async function verifyCountry(){
   let geocoder = new google.maps.Geocoder();
   return await geocoder.geocode({ location: {lat: xa, lng: xy} }).then((response) => {
       for (a of response.results[0].address_components){
-        if(a.types[0] == "country") return (a.long_name);
+        if(a.types[0] == "country")
+        {
+          if(a.long_name == "France" || bypass) return false;
+        }
       }
-      return "";
+      return true;
     });
 }
 
 async function loadValue(){
   generateValue();
-  while(await verifyCountry() != 'France'){
+  while(await verifyCountry()){
     generateValue();
     await sleep(100);
   }
@@ -63,4 +62,15 @@ async function reloadMap(){
     position: { lat: xa, lng: xy },
     map,
     title: "Ici"});
+}
+
+function changeScope{
+  if(bypass){
+    document.getElementById("changement").innerHTML = "France";
+  }
+  else{
+    document.getElementById("changement").innerHTML = "Europe";
+  }
+  bypass = !bypass;
+  reloadMap();
 }

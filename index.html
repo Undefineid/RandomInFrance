@@ -16,7 +16,10 @@
    </head>
    <body onload="loadMap()">
      <div id="main"></div>
-     <button onclick="reloadMap()" class="reloadMap">Recharger</button>
+     <div class="actions">
+       <button onclick="reloadMap()">Recharger</button>
+       <button onclick="changeScope()" id="changement">Europe</button>
+     </div>
      <p id="cds"></p>
    </body>
 </html>
