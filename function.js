@@ -22,6 +22,7 @@ async function testEurope(){
       for (a of response.results[0].address_components){
         if(a.types[0] == "country") console.log(a.long_name);
       }
+    });
 }
 
 async function verifyCountry(){
