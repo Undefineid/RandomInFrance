@@ -14,8 +14,18 @@ function generateValue(){
   xy = Math.round(getRandomArbitrary(-4795555555555556, 8230555555555556))/1000000000000000;
 }
 
+async function testEurope(){
+  xa = Math.round(getRandomArbitrary(360041667, 711338889))/10000000;
+  xy = Math.round(getRandomArbitrary(-9498885000000000, 66618055555555540))/1000000000000000;
+  let geocoder = new google.maps.Geocoder();
+  return await geocoder.geocode({ location: {lat: xa, lng: xy} }).then((response) => {
+      for (a of response.results[0].address_components){
+        if(a.types[0] == "country") console.log(a.long_name);
+      }
+}
+
 async function verifyCountry(){
-  const geocoder = new google.maps.Geocoder();
+  let geocoder = new google.maps.Geocoder();
   return await geocoder.geocode({ location: {lat: xa, lng: xy} }).then((response) => {
       for (a of response.results[0].address_components){
         if(a.types[0] == "country") return (a.long_name);
