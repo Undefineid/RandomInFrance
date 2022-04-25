@@ -14,9 +14,11 @@ body{
 p{
   margin: 0 0 0 0;
   float: right;
-  font-size: 2em;
+  font-size: 1.8em;
 }
 .actions{
   float: left;
+}
+.actions button{
   height: 3.5vh;
 }
