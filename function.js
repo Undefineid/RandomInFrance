@@ -45,5 +45,10 @@ async function loadMap() {
 
 async function reloadMap(){
   await loadValue();
+  setMapOnAll(null);
   map.setCenter({lat: xa, lng: xy});
+  new google.maps.Marker({
+    position: { lat: xa, lng: xy },
+    map,
+    title: "Ici"});
 }
