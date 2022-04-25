@@ -7,13 +7,16 @@ body{
 }
 #main{
   width: 100vw;
-  height: 97vh;
+  height: 96vh;
   margin: 0 0 0 0;
   padding : 0 0 0 0;
 }
 p{
   margin: 0 0 0 0;
+  float: right;
+  font-size: 2em;
 }
 .actions{
   float: left;
+  height: 3.5vh;
 }
