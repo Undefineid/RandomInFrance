@@ -64,7 +64,7 @@ async function reloadMap(){
     title: "Ici"});
 }
 
-function changeScope{
+function changeScope(){
   if(bypass){
     document.getElementById("changement").innerHTML = "France";
   }
