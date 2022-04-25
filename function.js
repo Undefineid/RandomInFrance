@@ -77,9 +77,9 @@ function changeScope(){
 
 function distanceCalcul(){
   if(navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position) {
+    navigator.geolocation.getCurrentPosition(position => {
       alert("La distance entre toi et le point est de " + getDistanceFromLatLonInKm(xa,xy,position.coords.latitude,position.coords.longitude) + "km.");
-    });
+    }, () => {alert("Localisation non activé.");});
   }
   else {
     alert('Geolocation not detected');
