@@ -66,10 +66,10 @@ async function reloadMap(){
 
 function changeScope(){
   if(bypass){
-    document.getElementById("changement").innerHTML = "France";
+    document.getElementById("changement").innerHTML = "Europe";
   }
   else{
-    document.getElementById("changement").innerHTML = "Europe";
+    document.getElementById("changement").innerHTML = "France";
   }
   bypass = !bypass;
   reloadMap();
