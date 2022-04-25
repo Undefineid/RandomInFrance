@@ -7,20 +7,13 @@ body{
 }
 #main{
   width: 100vw;
-  height: 96vh;
+  height: 97vh;
   margin: 0 0 0 0;
   padding : 0 0 0 0;
 }
 p{
   margin: 0 0 0 0;
-  font-size: 2em;
 }
 .actions{
   float: left;
-}
-
-.actions button{
-  height: 4vh;
-  padding-top: 0;
-  padding-bottom: 0;
 }
