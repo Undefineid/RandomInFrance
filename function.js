@@ -79,6 +79,8 @@ function distanceCalcul(){
   if(navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(position => {
       alert("La distance entre toi et le point est de " + getDistanceFromLatLonInKm(xa,xy,position.coords.latitude,position.coords.longitude) + "km.");
+      document.cookie = "loc={lat: 52, lng:36}; path=/; domain=randominfrance.netlify.app; max-age= 86400";
+      console.log(docuement.cookie);
     }, () => {alert("Localisation non activé.");});
   }
   else {
