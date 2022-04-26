@@ -27,7 +27,7 @@ async function verifyCountry(){
       for (a of response.results[0].address_components){
         if(a.types[0] == "country")
         {
-          if(a.long_name == "France" || (bypass && continent[a.short_name]="Europe")) return false;
+          if(a.long_name == "France" || (bypass && continent[a.short_name] == "Europe")) return false;
         }
       }
       return true;
