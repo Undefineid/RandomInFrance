@@ -76,9 +76,9 @@ function changeScope(){
 }
 
 function distanceCalcul(){
-  let couqie = document.cookie.match(new RegExp('(^| )loc=([^;]+)'))[2];
+  let couqie = document.cookie.match(new RegExp('(^| )loc=([^;]+)'));
   if (couqie){
-    alert("La distance entre toi et le point est de " + getDistanceFromLatLonInKm(xa,xy,JSON.parse(couqie).lat, JSON.parse(couqie).lng) + "km.");
+    alert("La distance entre toi et le point est de " + getDistanceFromLatLonInKm(xa,xy,JSON.parse(couqie[2]).lat, JSON.parse(couqie[2]).lng) + "km.");
   }
   else if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(position => {
