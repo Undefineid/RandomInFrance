@@ -76,12 +76,14 @@ function changeScope(){
 }
 
 function distanceCalcul(){
-  if(navigator.geolocation) {
+  let couqie = document.cookie.match(new RegExp('(^| )loc=([^;]+)'))[2];
+  if (couqie){
+    alert("La distance entre toi et le point est de " + getDistanceFromLatLonInKm(xa,xy,JSON.parse(couqie).lat, JSON.parse(couqie).lng) + "km.");
+  }
+  else if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(position => {
       alert("La distance entre toi et le point est de " + getDistanceFromLatLonInKm(xa,xy,position.coords.latitude,position.coords.longitude) + "km.");
       document.cookie = "loc={\"lat\": "+position.coords.latitude+", \"lng\":"+position.coords.longitude+"}; path=/; domain=randominfrance.netlify.app; max-age= 86400";
-      console.log(document.cookie.match(new RegExp('(^| )loc=([^;]+)'))[2]);
-      console.log(JSON.parse(document.cookie.match(new RegExp('(^| )loc=([^;]+)'))[2]));
     }, () => {alert("Localisation non activé.");});
   }
   else {
